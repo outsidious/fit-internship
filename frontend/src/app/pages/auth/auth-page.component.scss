@@ -1,4 +1,4 @@
-.form-property {
+.container {
   display: flex;
   justify-content: center;
   vertical-align: middle;
@@ -7,16 +7,21 @@
   height: 80vh;
 }
 
+.form-property {
+  padding-bottom: 15px;
+}
+
+.label {
+  padding-right: 30px;
+}
+
 input {
   height: 35px;
 }
 
 .actions {
   display: flex;
-  width: 400px;
-  justify-content: space-between;
-
-  button {
-    background-color: purple;
-  }
+  width: 180px;
+  justify-content: flex-end;
+  padding-top: 20px;
 }
