@@ -1,14 +1,21 @@
-<div class="form-property">
-  <label>Email</label>
-  <input type="email" placeholder="example@example.com" [(ngModel)]="email" />
-</div>
-<div class="form-property">
-  <label>Password</label>
-  <input type="password" placeholder="qwerty" [(ngModel)]="password" />
-  <div>
-    <div class="actions">
-      <a class="instruction-link" href="../about">How to create account?</a>
-      <button (click)="login()" class="meetups-button">Log In</button>
+<div class="container">
+  <div class="form">
+    <div class="form-property">
+      <div class="label">Email</div>
+      <input
+        type="email"
+        placeholder="example@example.com"
+        [(ngModel)]="email"
+      />
+    </div>
+    <div class="form-property">
+      <div class="label">Password</div>
+      <input type="password" placeholder="qwerty" [(ngModel)]="password" />
+      <div>
+        <div class="actions">
+          <button (click)="login()" class="meetups-button">Log In</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
