@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.1.0/rxjs.umd.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const { fromEvent, subscribe } = rxjs;
+        const { map, debounceTime, filter, distinctUntilChanged } =
+          rxjs.operators;
+        const input = document.getElementById("my-input");
+        console.log(input);
+        fromEvent(input, "keyup")
+          .pipe(
+            map((event) => event.target.value),
+            filter((value) => value.length > 3),
+            debounceTime(1000),
+            distinctUntilChanged()
+          )
+          .subscribe((value) => {
+            console.log(value);
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="my-input" />
+  </body>
+</html>

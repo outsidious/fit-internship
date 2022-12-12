@@ -25,3 +25,7 @@ input {
   justify-content: flex-end;
   padding-top: 20px;
 }
+
+input.ng-invalid {
+  border-color: red;
+}
