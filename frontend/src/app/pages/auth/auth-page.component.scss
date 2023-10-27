@@ -19,6 +19,14 @@ input {
   height: 35px;
 }
 
+input.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+input.ng-touched.ng-valid {
+  border-color: green;
+}
+
 .actions {
   display: flex;
   width: 180px;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +10,19 @@ export class AuthService {
 
   baseUrl: string = 'https://api.fit-meetups.ru/auth';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  //meetups$: BehaviorSubject<any> = new BehaviorSubject([]);
 
-  login(email: string, password: string) {
+  constructor(private http: HttpClient, private router: Router) {
+
+    /*setInterval(() => {
+      this.http.get('....').subscribe((data) => {
+        // обработка dat-ы, преобразования ...
+        this.meetups$.next(data);
+      })
+    }, 60000);*/
+  }
+
+  login(email?: any, password?: any) {
     return this.http.post<{ token: string }>(`${this.baseUrl}/login`, { email, password }).pipe(map((res) => {
       if (res.token) {
         localStorage.setItem('meetups_auth_token', res.token);

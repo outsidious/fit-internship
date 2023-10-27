@@ -1,21 +1,20 @@
 <div class="container">
-  <div class="form">
+  <form class="form" [formGroup]="authForm">
     <div class="form-property">
       <div class="label">Email</div>
-      <input
-        type="email"
-        placeholder="example@example.com"
-        [(ngModel)]="email"
-      />
+      <input type="email" formControlName="email" />
     </div>
     <div class="form-property">
       <div class="label">Password</div>
-      <input type="password" placeholder="qwerty" [(ngModel)]="password" />
+      <input type="password" formControlName="password" />
+      <div class="error" *ngIf="authForm.controls.password.getError('invalidPassword')">
+        {{authForm.controls.password.getError('invalidPassword')}}
+      </div>
       <div>
         <div class="actions">
           <button (click)="login()" class="meetups-button">Log In</button>
         </div>
       </div>
     </div>
-  </div>
+  </form>
 </div>
